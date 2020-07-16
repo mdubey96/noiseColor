@@ -8,12 +8,12 @@ import numpy as np
 print(sig.size/rate)
 
 #Simple Plotting
-#plt.plot(sig)
-#plt.ylabel('Frequency')
-#plt.xlabel('Time')
-#plt.show()
+plt.plot(sig)
+plt.ylabel('Frequency')
+plt.xlabel('Time')
+plt.show()
 
 #Spectrogram 1
 
-x, sr = librosa.load('data/waterSound2_1.wav')
-ipd.Audio(x, rate=sr)
+#x, sr = librosa.load('data/waterSound2_1.wav')
+#ipd.Audio(x, rate=sr)
