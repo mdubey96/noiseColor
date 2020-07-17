@@ -43,7 +43,7 @@ def spectrogram(sig, rate):
 	plt.show()
 
 spectrogram(sig, rate)
-
+plt.savefig('spectrogram1_1.png')
 #Outputing the spectrograms as png's...
 '''
 for i in range(3): 
