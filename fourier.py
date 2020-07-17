@@ -45,8 +45,10 @@ def spectrogram(sig, rate):
 spectrogram(sig, rate)
 
 #Outputing the spectrograms as png's...
-i = 0
-for p in range(5):
-	(sig, rate) = librosa.load('data/waterSound'+str(i+1)+'_'+str(p+1)+'.wav', sr=None)
-	spectrogram(sig, rate)
-	plt.savefig('spectrogram'+str(i+1)+'_'+str(p+1)+'.png')
+'''
+for i in range(3): 
+	for p in range(5):
+		(sig, rate) = librosa.load('data/waterSound'+str(i+1)+'_'+str(p+1)+'.wav', sr=None)
+		spectrogram(sig, rate)
+		plt.savefig('spectrogram'+str(i+1)+'_'+str(p+1)+'.png')
+'''
