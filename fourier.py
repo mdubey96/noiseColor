@@ -4,18 +4,18 @@ import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
 
 
 #Testing the librosa library...
-(sig, rate) = librosa.load('data/waterSound1_2.wav', sr=None)
+(sig, rate) = librosa.load('data/soundFiles/waterSound1_2.wav', sr=None)
 print(sig.size/rate)
 
 #Creating Spectrogram of specified sound file...
 def spectrogram(sig, rate):
-	f = np.linspace(0, rate/2, 4096)
-	X = scipy.fft.fft(sig[75000:125000])
-	X_mag = np.absolute(X)
-	plt.figure(figsize=(14,5))
-	plt.plot(f[:4000], X_mag[:4000])
-	plt.xlabel('Frequency (Hz)')
-        plt.show()     #Disable plt.show() to allow the graphs to be saved. 
+        f = np.linspace(0, rate/2, 4096)
+        X = scipy.fft.fft(sig[75000:125000])
+        X_mag = np.absolute(X)
+        plt.figure(figsize=(14,5))
+        plt.plot(f[:4000], X_mag[:4000])
+        plt.xlabel('Frequency (Hz)')
+        plt.show()
 
 spectrogram(sig, rate)
 
