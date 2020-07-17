@@ -4,7 +4,7 @@ import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
 
 
 #Testing the librosa library...
-(sig, rate) = librosa.load('data/soundFiles/waterSound1_2.wav', sr=None)
+(sig, rate) = librosa.load('data/soundFiles/audiocheck.net_whitenoise.wav', sr=None)
 print(sig.size/rate)
 
 #Creating Spectrogram of specified sound file...
