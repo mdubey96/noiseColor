@@ -4,7 +4,7 @@ import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
 
 
 #Loading a sound file...
-(sig, rate) = librosa.load('data/soundFiles/waterSound1_1.wav', sr=None)
+(sig, rate) = librosa.load('data/soundFiles/lakeshoreWaves.wav', sr=None)
 
 
 #Creating a Spectrogram of specified sound file...
@@ -17,7 +17,7 @@ def spectrogram(sig, rate):
         plt.xlabel('Frequency (Hz)')
         plt.show()
 
-#spectrogram(sig, rate)
+spectrogram(sig, rate)
 
 #Creating a spectrogram set to log-log scale...
 def spec_log(sig, rate):
@@ -31,7 +31,7 @@ def spec_log(sig, rate):
         plt.plot(f[50:4000], dB[50:4000])
         plt.xscale('log')
         plt.xlabel('Frequency (Hz)')
-        #plt.show()
+        plt.show()
 
 spec_log(sig, rate)
 
