@@ -4,7 +4,7 @@ import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
 from scipy.optimize import curve_fit
 
 #Loading a sound file...
-(sig, rate) = librosa.load('data/soundFiles/waterSound1_1.wav', sr=None)
+(sig, rate) = librosa.load('data/soundFiles/streamRapids.wav', sr=None)
 
 
 #Creating a Spectrogram of specified sound file...
@@ -39,7 +39,7 @@ def spec_log(sig, rate):
         plt.plot(n[50:4000], f(n, *popt)[50:4000])
         plt.xscale('log')
         plt.xlabel('Frequency (Hz)')
-        plt.show()
+        #plt.show()
 
 spec_log(sig, rate)
 
@@ -50,3 +50,5 @@ for i in range(3):
         #Load the file
         #plt.savefig('File name')
 '''
+
+plt.savefig('streamRapids.png')
