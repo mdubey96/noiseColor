@@ -4,7 +4,7 @@ import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
 from scipy.optimize import curve_fit
 
 #Loading a sound file...
-(sig, rate) = librosa.load('data/soundFiles/streamRapids.wav', sr=None)
+(sig, rate) = librosa.load('data/soundFiles/waterSound1_1.wav', sr=None)
 
 
 #Creating a Spectrogram of specified sound file...
