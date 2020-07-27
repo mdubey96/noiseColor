@@ -1,10 +1,11 @@
 #Import all the required libraries...
 import librosa, librosa.display
-import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd
+import numpy as np, scipy, matplotlib.pyplot as plt, IPython.display as ipd, pandas as pd, glob
 from scipy.optimize import curve_fit
 
+
 #Loading a sound file...
-(sig, rate) = librosa.load('data/soundFiles/waterSound1_1.wav', sr=None)
+#(sig, rate) = librosa.load('data/soundFiles/whitenoise.wav', sr=None)
 
 
 #Creating a Spectrogram of specified sound file...
@@ -29,9 +30,9 @@ def spec_log(sig, rate):
         dB = 20*np.log10(X_mag/np.amax(X_mag))
 
         def f(x, A, B):
-                return A*x + B
+                return A*np.log(x) + B
         
-        popt, pcov = curve_fit(f, n[:4000], dB[:4000])
+        popt, pcov = curve_fit(f, n[50:4000], dB[50:4000])
 
         plt.figure(figsize=(14,5))
         
@@ -41,14 +42,17 @@ def spec_log(sig, rate):
         plt.xlabel('Frequency (Hz)')
         #plt.show()
 
-spec_log(sig, rate)
+#spec_log(sig, rate)
+
 
 #Outputing the spectrograms as png's...
-'''
-for i in range(3):
-    for p in range(5):
-        #Load the file
-        #plt.savefig('File name')
-'''
+#all_files = glob.glob('/noiseColor/data/soundFiles/*')
+for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/data/soundFiles/*'):
+        file = file.replace('/home/titanslayer/2020internproj/noiseColor/', '')
+        (sig, rate) = librosa.load(file, sr=None)
+        spec_log(sig, rate)
 
-plt.savefig('streamRapids.png')
+        file = file.replace('data/soundFiles/', '')
+        file = file.replace('.wav', '.png')
+        
+        plt.savefig('log_'+file)
