@@ -38,10 +38,11 @@ def spec_log(sig, rate):
         plt.plot(n[50:4000], f(n, *popt)[50:4000])
         plt.xscale('log')
         plt.xlabel('Frequency (Hz)')
-        #plt.show()
+        plt.show()
         
-
-#spec_log(sig, rate)
+#Outputting the spetrograms and showing the graph...
+(sig, rate) = librosa.load('data/soundFiles/whitenoise.wav', sr=None)
+spec_log(sig, rate)
 
 
 #Outputing the spectrograms as png's...
