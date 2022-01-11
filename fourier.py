@@ -31,6 +31,19 @@ def spec_log(sig, rate):
                 return A*np.log(x) + B
         
         popt, pcov = curve_fit(f, n[50:4000], dB[50:4000])
+        #Use popt as the slope to compare to the other noises. 
+        print(popt[0])
+
+        if popt[0] < 1 and popt[0] > -1:
+                print('The audio file is White noise.')
+        elif popt[0] < -2 and popt[0] > -8:
+                print('The audio file is Pink noise.')
+        elif popt[0] < -8:
+                print('The audio file is Brown noise.')
+        elif popt[0] > 2 and popt[0] < 8:
+                print('The audio file is Blue noise.')
+        elif popt[0] > 8:
+                print('The audio file is Violet noise.')
 
         plt.figure(figsize=(14,5))
         
@@ -41,7 +54,7 @@ def spec_log(sig, rate):
         plt.show()
         
 #Outputting the spetrograms and showing the graph...
-(sig, rate) = librosa.load('data/soundFiles/whitenoise.wav', sr=None)
+(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0001.wav', sr=None)
 spec_log(sig, rate)
 
 
@@ -55,7 +68,7 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/data/soundFil
         file = file.replace('data/soundFiles/', '')
         file = file.replace('.wav', '.png')
         
-        plt.savefig('log_'+file)
+        plt.savefig('log' + file)
 '''
 
 #Outputing the data & slopes to a text file...
