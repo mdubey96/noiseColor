@@ -60,8 +60,8 @@ spec_log(sig, rate)
 '''
 
 #Outputing the spectrograms as png's...
-'''
-for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/data/soundFiles/*'):
+
+for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
         file = file.replace('/home/titanslayer/2020internproj/noiseColor/', '')
         (sig, rate) = librosa.load(file, sr=None)
         spec_log(sig, rate)
@@ -70,14 +70,15 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/data/soundFil
         file = file.replace('.wav', '.png')
         
         plt.savefig('log' + file)
-'''
+
 
 #Outputing the data into a single spectrogram.
+'''
 (sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0013.wav', sr=None)
 spec_log(sig, rate)
 
 plt.savefig('ascam_sol0013.png')
-
+'''
 #Outputing the data & slopes to a text file...
 '''
 file = open('data_comparison.txt', 'w')
