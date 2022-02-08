@@ -22,8 +22,8 @@ def spec_log(sig, rate):
         global popt
         global pcov
         
-        n = np.linspace(0, rate/2, 4096)
-        X = scipy.fft.fft(sig[75000:125000])
+        n = np.linspace(0, rate/2, 10096)#4096
+        X = scipy.fft.fft(sig[25000:125000])#25000; 125000
         X_mag = np.absolute(X)        
         dB = 20*np.log10(X_mag/np.amax(X_mag))
 
@@ -60,7 +60,7 @@ spec_log(sig, rate)
 '''
 
 #Outputing the spectrograms as png's...
-
+'''
 for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
         file = file.replace('/home/titanslayer/2020internproj/noiseColor/', '')
         (sig, rate) = librosa.load(file, sr=None)
@@ -70,15 +70,15 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soun
         file = file.replace('.wav', '.png')
         
         plt.savefig('log' + file)
-
+'''
 
 #Outputing the data into a single spectrogram.
-'''
-(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0013.wav', sr=None)
+
+(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0076.wav', sr=None)
 spec_log(sig, rate)
 
-plt.savefig('ascam_sol0013.png')
-'''
+plt.savefig('ascam_sol0076.png')
+
 #Outputing the data & slopes to a text file...
 '''
 file = open('data_comparison.txt', 'w')
