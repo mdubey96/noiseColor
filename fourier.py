@@ -55,7 +55,7 @@ def spec_log(sig, rate):
         
 #Outputting the spetrograms and showing the graph...
 '''
-(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0001.wav', sr=None)
+(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0067.wav', sr=None)
 spec_log(sig, rate)
 '''
 
@@ -74,10 +74,10 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soun
 
 #Outputing the data into a single spectrogram.
 
-(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0076.wav', sr=None)
+(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0096.wav', sr=None)
 spec_log(sig, rate)
 
-plt.savefig('ascam_sol0076.png')
+plt.savefig('ascam_sol0096.png')
 
 #Outputing the data & slopes to a text file...
 '''
