@@ -21,9 +21,10 @@ spectrogram(sig, rate)
 def spec_log(sig, rate):
         global popt
         global pcov
+        global noiseType
         
-        n = np.linspace(0, rate/2, 10096)#4096
-        X = scipy.fft.fft(sig[25000:125000])#25000; 125000
+        n = np.linspace(0, rate/2, 4096)#4096
+        X = scipy.fft.fft(sig[10000:50000])#25000; 125000
         X_mag = np.absolute(X)        
         dB = 20*np.log10(X_mag/np.amax(X_mag))
 
@@ -36,14 +37,19 @@ def spec_log(sig, rate):
 
         if popt[0] < 1 and popt[0] > -1:
                 print('The audio file is White noise.')
+                noiseType = 'White Noise.'
         elif popt[0] < -2 and popt[0] > -8:
                 print('The audio file is Pink noise.')
+                noiseType = 'Pink Noise.'
         elif popt[0] < -8:
                 print('The audio file is Brown noise.')
+                noiseType = 'Brown Noise.'
         elif popt[0] > 2 and popt[0] < 8:
                 print('The audio file is Blue noise.')
+                noiseType = 'Blue Noise.'
         elif popt[0] > 8:
                 print('The audio file is Violet noise.')
+                noiseType = ' Violet Noise.'
 
         plt.figure(figsize=(14,5))
         
@@ -73,13 +79,13 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soun
 '''
 
 #Outputing the data into a single spectrogram.
-
+'''
 (sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0096.wav', sr=None)
 spec_log(sig, rate)
 
 plt.savefig('ascam_sol0096.png')
-
-#Outputing the data & slopes to a text file...
+'''
+#Outputing the data & slopes to a text file water sound files...
 '''
 file = open('data_comparison.txt', 'w')
 
@@ -95,3 +101,26 @@ for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/data/soundFi
 
 file.close()
 '''
+
+
+#Outputing the data & slopes to a text file Mars sound files...
+file = open('mars_datahold.txt', 'w')
+'''
+for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
+        (sig, rate) = librosa.load(files, sr=None)
+        spec_log(sig, rate)
+        file.write(files + ' ; Slope=' + str(popt[0]) + ' ; Intercept=' + str(popt[1]) + ' ; Noise='+ '\n\n')
+'''
+def num_there(s):
+        return any(i.isdigit() for i in s)
+
+for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
+        if '0001' in files or '0004' in files or '0011' in files or '0038' in files or '0066' in files or '0067' in files or '0076' in files or '0079' in files or '0081' in files or '0096' in files:
+                print(files)
+                print('True')
+                (sig, rate) = librosa.load(files, sr=None)
+                spec_log(sig, rate)
+                files = files.replace('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/', '')
+                file.write(files + ' ; Slope=' + str(popt[0]) + ' ; Intercept=' + str(popt[1]) + ' ; Noise=' + noiseType + '\n\n')
+
+file.close()
