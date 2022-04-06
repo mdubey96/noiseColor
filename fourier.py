@@ -80,10 +80,10 @@ for file in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soun
 
 #Outputing the data into a single spectrogram.
 '''
-(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0096.wav', sr=None)
+(sig, rate) = librosa.load('marsData/soundFiles/ascam_sol0123.wav', sr=None)
 spec_log(sig, rate)
 
-plt.savefig('ascam_sol0096.png')
+plt.savefig('ascam_sol0123.png')
 '''
 #Outputing the data & slopes to a text file water sound files...
 '''
@@ -104,18 +104,18 @@ file.close()
 
 
 #Outputing the data & slopes to a text file Mars sound files...
-file = open('mars_datahold.txt', 'w')
 '''
+file = open('mars_datahold.txt', 'w')
 for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
         (sig, rate) = librosa.load(files, sr=None)
         spec_log(sig, rate)
         file.write(files + ' ; Slope=' + str(popt[0]) + ' ; Intercept=' + str(popt[1]) + ' ; Noise='+ '\n\n')
 '''
-def num_there(s):
-        return any(i.isdigit() for i in s)
 
+
+'''
 for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/soundFiles/*'):
-        if '0001' in files or '0004' in files or '0011' in files or '0038' in files or '0066' in files or '0067' in files or '0076' in files or '0079' in files or '0081' in files or '0096' in files:
+        if '0001' in files or '0004' in files or '0011' in files or '0038' in files or '0066' in files or '0067' in files or '0076' in files or '0079' in files or '0081' in files or '0096' in files or '0100' in files or '0114' in files or '0117' in files or '0120' in files:
                 print(files)
                 print('True')
                 (sig, rate) = librosa.load(files, sr=None)
@@ -124,3 +124,4 @@ for files in glob.glob('/home/titanslayer/2020internproj/noiseColor/marsData/sou
                 file.write(files + ' ; Slope=' + str(popt[0]) + ' ; Intercept=' + str(popt[1]) + ' ; Noise=' + noiseType + '\n\n')
 
 file.close()
+'''

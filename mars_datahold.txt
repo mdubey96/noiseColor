@@ -1,3 +1,5 @@
+ascam_sol0100.wav ; Slope=-2.5042493675482844 ; Intercept=-8.801011008463428 ; Noise=Pink Noise.
+
 ascam_sol0066.wav ; Slope=-4.165341408941752 ; Intercept=1.2211029465550354 ; Noise=Pink Noise.
 
 ascam_sol0001.wav ; Slope=-0.5796911461829835 ; Intercept=-37.2375296603019 ; Noise=White Noise.
@@ -14,7 +16,13 @@ ascam_sol0079.wav ; Slope=-1.2122742223554648 ; Intercept=-25.122192897199504 ; 
 
 ascam_sol0076.wav ; Slope=-2.472590583820819 ; Intercept=-15.304228963379597 ; Noise=Pink Noise.
 
+ascam_sol0117.wav ; Slope=-7.836452725272906 ; Intercept=21.34658118565473 ; Noise=Pink Noise.
+
 ascam_sol0011.wav ; Slope=-0.872284173934458 ; Intercept=-30.057244789715977 ; Noise=White Noise.
 
+ascam_sol0120.wav ; Slope=-5.448883187587403 ; Intercept=12.69544310624221 ; Noise=Pink Noise.
+
 ascam_sol0067.wav ; Slope=-2.35324026969581 ; Intercept=-15.660135371778225 ; Noise=Pink Noise.
+
+ascam_sol0114.wav ; Slope=-3.2598895993435884 ; Intercept=-15.259005080998156 ; Noise=Pink Noise.
 
