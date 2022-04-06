@@ -1,2 +1,2 @@
 # noiseColor
-Researching the colors of noise produced by water
+Researching the colors of noise produced by water and lasers. 
